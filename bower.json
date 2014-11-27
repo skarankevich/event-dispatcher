@@ -1,0 +1,26 @@
+{
+  "name": "event-dispatcher",
+  "version": "0.1",
+  "homepage": "https://github.com/skarankevich/event-dispatcher",
+  "authors": [
+    "Serge Karankevich"
+  ],
+  "description": "JavaScript Event Dispatcher",
+  "main": "dist/EventDispatcher.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "javascript",
+    "event",
+    "dispatcher"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
