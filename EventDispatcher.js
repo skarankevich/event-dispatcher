@@ -27,3 +27,9 @@ EventDispatcher.prototype.trigger = function (eventName, data) {
         eventSubscriptions[index](data, eventName);
     }
 };
+
+EventDispatcher.prototype.unsubscribe = function (eventName) {
+    if (typeof this.subscriptions[eventName] !== 'undefined') {
+        delete this.subscriptions[eventName];
+    }
+};
