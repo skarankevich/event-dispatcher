@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Dispatcher Sample Page</title>
+</head>
+
+<body>
+    <p>Open browser's console.</p>
+
+    <button id="sample-button">Click me</button>
+
+    <div id="sample-log"></div>
+
+    <script src="../EventDispatcher.js"></script>
+    <script>
+        (function (EventDispatcher) {
+            var dispatcher = new EventDispatcher(),
+                log = document.getElementById('sample-log');
+
+            dispatcher.subscribe('button:clicked', function (button, eventName) {
+                log.innerHTML += '<p>Button with text "' + button.innerText + '" triggered "' + eventName + '" event.</p>';
+                dispatcher.trigger('text:printed');
+            });
+
+            dispatcher.subscribe('text:printed', function () {
+                console.info('Text is printed.');
+            });
+
+            document.getElementById('sample-button').addEventListener('click', function (event) {
+                dispatcher.trigger('button:clicked', event.target);
+            });
+        }(EventDispatcher));
+    </script>
+</body>
+
+</html>
