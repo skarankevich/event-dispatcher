@@ -1,6 +1,6 @@
 {
   "name": "event-dispatcher",
-  "version": "0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/skarankevich/event-dispatcher",
   "authors": [
     "Serge Karankevich"
