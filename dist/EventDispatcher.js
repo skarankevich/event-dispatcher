@@ -16,15 +16,16 @@ EventDispatcher.prototype.subscribe = function (eventName, callbackFunction) {
     eventSubscriptions.push(callbackFunction);
 };
 
-EventDispatcher.prototype.trigger = function (eventName, data) {
-    var eventSubscriptions = this.subscriptions[eventName];
+EventDispatcher.prototype.trigger = function (eventName) {
+    var callbackArguments = Array.prototype.splice.call(arguments, 1),
+        eventSubscriptions = this.subscriptions[eventName];
 
     if (typeof eventSubscriptions === 'undefined') {
         return;
     }
 
     for (var index in eventSubscriptions) {
-        eventSubscriptions[index](data, eventName);
+        eventSubscriptions[index].apply(null, callbackArguments);
     }
 };
 
