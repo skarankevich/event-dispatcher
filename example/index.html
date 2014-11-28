@@ -19,8 +19,9 @@
             var dispatcher = new EventDispatcher(),
                 log = document.getElementById('sample-log');
 
-            dispatcher.subscribe('button:clicked', function (button, eventName) {
-                log.innerHTML += '<p>Button with text "' + button.innerText + '" triggered "' + eventName + '" event.</p>';
+            dispatcher.subscribe('button:clicked', function (button) {
+                log.innerHTML += '<p>Button with text "' + button.innerText + '" triggered "button:clicked" event.</p>';
+
                 dispatcher.trigger('text:printed');
             });
 
