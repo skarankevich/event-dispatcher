@@ -7,7 +7,8 @@
   "description": "JavaScript Event Dispatcher",
   "main": "dist/EventDispatcher.js",
   "moduleType": [
-    "globals"
+    "globals",
+    "node"
   ],
   "keywords": [
     "javascript",
