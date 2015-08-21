@@ -9,37 +9,44 @@
         this.subscriptions = {};
     }
 
-    EventDispatcher.prototype.subscribe = function (eventName, callbackFunction) {
-        var eventSubscriptions = this.subscriptions[eventName];
+    EventDispatcher.prototype.subscribe = function (eventNames, callbackFunction) {
+        ([].concat(eventNames)).forEach(function (eventName) {
+            var eventSubscriptions = this.subscriptions[eventName];
 
-        if (typeof eventSubscriptions === 'undefined') {
-            eventSubscriptions = this.subscriptions[eventName] = [];
-        }
+            if (typeof eventSubscriptions === 'undefined') {
+                eventSubscriptions = this.subscriptions[eventName] = [];
+            }
 
-        if (typeof callbackFunction !== 'function') {
-            return;
-        }
+            if (typeof callbackFunction !== 'function') {
+                return;
+            }
 
-        eventSubscriptions.push(callbackFunction);
+            eventSubscriptions.push(callbackFunction);
+        }.bind(this));
     };
 
-    EventDispatcher.prototype.trigger = function (eventName) {
-        var callbackArguments = Array.prototype.splice.call(arguments, 1),
-            eventSubscriptions = this.subscriptions[eventName];
+    EventDispatcher.prototype.trigger = function (eventNames) {
+        var callbackArguments = Array.prototype.splice.call(arguments, 1);
 
-        if (typeof eventSubscriptions === 'undefined') {
-            return;
-        }
+        ([].concat(eventNames)).forEach(function (eventName) {
+            var eventSubscriptions = this.subscriptions[eventName];
 
-        for (var index in eventSubscriptions) {
-            eventSubscriptions[index].apply(null, callbackArguments);
-        }
+            if (typeof eventSubscriptions === 'undefined') {
+                return;
+            }
+
+            for (var index in eventSubscriptions) {
+                eventSubscriptions[index].apply(null, callbackArguments);
+            }
+        }.bind(this));
     };
 
-    EventDispatcher.prototype.unsubscribe = function (eventName) {
-        if (typeof this.subscriptions[eventName] !== 'undefined') {
-            delete this.subscriptions[eventName];
-        }
+    EventDispatcher.prototype.unsubscribe = function (eventNames) {
+        ([].concat(eventNames)).forEach(function (eventName) {
+            if (typeof this.subscriptions[eventName] !== 'undefined') {
+                delete this.subscriptions[eventName];
+            }
+        }.bind(this));
     };
 
     return EventDispatcher;
