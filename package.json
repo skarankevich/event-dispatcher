@@ -1,0 +1,29 @@
+{
+  "name": "event-dispatcher",
+  "version": "2.0.0",
+  "description": "JavaScript Event Dispatcher",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skarankevich/event-dispatcher.git"
+  },
+  "keywords": [
+    "event",
+    "dispatcher"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skarankevich/event-dispatcher/issues"
+  },
+  "homepage": "https://github.com/skarankevich/event-dispatcher#readme",
+  "devDependencies": {
+    "jest-cli": "^0.8.2"
+  }
+}

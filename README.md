@@ -6,6 +6,12 @@
 $ bower install event-dispatcher
 ```
 
+## Run tests
+
+```bash
+$ npm test
+```
+
 ## Init
 
 ```javascript
