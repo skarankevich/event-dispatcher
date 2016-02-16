@@ -7,7 +7,7 @@
     "example": "example"
   },
   "scripts": {
-    "test": "jest"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/skarankevich/event-dispatcher#readme",
   "devDependencies": {
-    "jest-cli": "^0.8.2"
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
