@@ -15,7 +15,7 @@ $ npm test
 ## Init
 
 ```javascript
-var dispatcher = new EventDispatcher();
+import dispatcher from 'event-dispatcher';
 ```
 
 ## API

@@ -2,12 +2,12 @@
   "name": "event-dispatcher",
   "version": "2.0.0",
   "description": "JavaScript Event Dispatcher",
-  "main": "index.js",
+  "main": "src/dispatcher.js",
   "directories": {
     "example": "example"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/skarankevich/event-dispatcher#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.2",
     "chai": "^3.5.0",
     "mocha": "^2.4.5"
   }

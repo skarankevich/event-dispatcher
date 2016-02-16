@@ -1,12 +1,8 @@
 var assert = require('chai').assert;
-var Dispatcher = require('../dist/EventDispatcher.js');
-var dispatcher;
+
+import dispatcher from '../src/dispatcher.js';
 
 describe('Dispatcher', function () {
-  beforeEach(function () {
-    dispatcher = new Dispatcher();
-  });
-
   it('should be an object', function () {
     assert.isObject(dispatcher);
   });
